@@ -48,7 +48,7 @@ src/Debug/*
 src/Release/*
 
 .vs/*
-src/".vs"/*
+src/.vs/*
 
 SFML/*
 
