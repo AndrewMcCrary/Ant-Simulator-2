@@ -50,6 +50,8 @@ src/Release/*
 ".vs"/*
 src/".vs"/*
 
+SFML/*
+
 ipch/
 *.aps
 *.ncb
