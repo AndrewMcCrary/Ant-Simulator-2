@@ -36,6 +36,8 @@
 *.userosscache
 *.sln.docstates
 
+*.pdb
+
 x64/*
 x86/*
 
