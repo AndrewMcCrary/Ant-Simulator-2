@@ -1,11 +1,16 @@
 #include "world.h"
 
 world::world(size_t _width, size_t _height) {
+	this->setWidth(_width);
+	this->setHeight(_height);
+
 
 }
 
 bool world::tick(float _delta) {
-
+	for (size_t i = 0; i < this->getAnts().size(); i++) {
+		this->getAnts()[i]->tick(_delta);
+	}
 }
 
 size_t world::getWidth() {
