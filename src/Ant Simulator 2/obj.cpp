@@ -1,5 +1,9 @@
 #include "obj.h"
 
+obj::obj() {
+	this->asset = (sf::ConvexShape)NULL;
+}
+
 obj::obj(sf::ConvexShape _asset) {
 	this->asset = _asset;
 }

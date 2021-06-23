@@ -13,17 +13,18 @@ protected:
 	void setAsset(sf::ConvexShape _asset);
 
 public:
+	obj();
 	obj(sf::ConvexShape _asset);
 
 
 	float getRotation();
-	void setRotation(float _a);
+	virtual void setRotation(float _a);
 
 	float getX();
-	void setX(float _x);
+	virtual void setX(float _x);
 
 	float getY();
-	void setY(float _y);
+	virtual void setY(float _y);
 };
 
 #endif // !OBJ_H

@@ -3,18 +3,18 @@
 
 #include <SFML/Graphics.hpp>
 
-class moveable {
+#include "obj.h"
+
+class moveable : public obj {
 
 private:
 	float speed;
-	sf::ConvexShape asset;
 
 public:
 	virtual void tick(float _delta) = 0;
 
 	float getSpeed();
-	void setSpeed();
-
+	void setSpeed(float _s);
 };
 
 #endif // !MOVEBEHAVIOR_H
