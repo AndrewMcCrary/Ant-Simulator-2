@@ -19,3 +19,4 @@ ant::ant(float _x, float _y, float _angle = 0.f) {
 void ant::tick(float _delta) {
 	
 }
+

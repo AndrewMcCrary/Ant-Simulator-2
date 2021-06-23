@@ -1,6 +1,10 @@
 #ifndef OBJ_H
 #define OBJ_H
 
+#define _USE_MATH_DEFINES
+
+#include <cmath>
+
 #include <SFML/Graphics.hpp>
 
 class obj {
@@ -19,6 +23,7 @@ public:
 
 	float getRotation();
 	virtual void setRotation(float _a);
+	virtual void setRotation(float _dx, float _dy);
 
 	float getX();
 	virtual void setX(float _x);

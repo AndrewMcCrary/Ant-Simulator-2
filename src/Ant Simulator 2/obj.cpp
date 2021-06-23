@@ -24,6 +24,13 @@ void obj::setRotation(float _a) {
 	this->getAsset().setRotation(_a);
 }
 
+void obj::setRotation(float _dx, float _dy) {
+	if (_dx < 0)
+		this->setRotation((atan(_dy / _dx) * 180.f / M_PI - 90.f));
+	else
+		this->setRotation(atan(_dy / _dx) * 180.f / M_PI + 90.f);
+}
+
 float obj::getX() {
 	return this->getAsset().getPosition().x;
 }

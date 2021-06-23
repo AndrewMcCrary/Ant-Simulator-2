@@ -1,7 +1,9 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-int main(void)
+#include "window.h"
+
+int fmain(void)
 {
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
     sf::CircleShape shape(100.f);
@@ -20,6 +22,12 @@ int main(void)
         window.draw(shape);
         window.display();
     }
+
+    return 0;
+}
+
+int main(void) {
+
 
     return 0;
 }
