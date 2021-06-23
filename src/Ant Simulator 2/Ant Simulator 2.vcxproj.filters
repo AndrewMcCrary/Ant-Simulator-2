@@ -24,12 +24,18 @@
     <ClCompile Include="moveBehavior.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="obj.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="moveBehavior.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ant.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
