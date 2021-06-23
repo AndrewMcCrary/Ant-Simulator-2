@@ -23,3 +23,35 @@ void ant::tick(float _delta) {
 
 }
 
+void ant::setRotation(float _a, float _delta) {
+    while (_a < 0)
+        _a += 360;
+
+    float _back = fmodf(this->getRotation() + 180, 360.f);
+    if (abs(_a - this->getRotation()) > MAX_TURN_PER_TICK * _delta) {
+
+        if (this->getRotation() < 180) {
+            if (_a > this->getRotation() && _a < _back)
+                this->setRotation(this->getRotation() + MAX_TURN_PER_TICK);
+            else
+                this->setRotation(this->getRotation() - MAX_TURN_PER_TICK);
+        } else {
+            if (_a < this->getRotation() && _a > _back)
+                this->setRotation(this->getRotation() - MAX_TURN_PER_TICK);
+            else
+                this->setRotation(this->getRotation() + MAX_TURN_PER_TICK);
+        }
+    } else {
+        this->setRotation(_a);
+    }
+
+
+
+}
+
+void ant::setRotation(float _dx, float _dy, float _delta) {
+    if (_dx < 0)
+        this->setRotation(atan(_dy / _dx) * 180.f / M_PI - 90.f, _delta);
+    else
+        this->setRotation(atan(_dy / _dx) * 180.f / M_PI + 90.f, _delta);
+}
