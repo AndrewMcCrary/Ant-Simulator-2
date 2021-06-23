@@ -13,7 +13,6 @@ class ant : public moveable {
 
 private:
 
-
 public:
 	ant(float _x, float _y, float _angle = 0.f);
 

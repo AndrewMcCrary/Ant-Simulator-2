@@ -20,7 +20,6 @@ public:
 	obj();
 	obj(sf::ConvexShape _asset);
 
-
 	float getRotation();
 	virtual void setRotation(float _a);
 	virtual void setRotation(float _dx, float _dy);

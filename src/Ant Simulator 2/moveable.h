@@ -1,5 +1,5 @@
-#ifndef MOVEBEHAVIOR_H
-#define MOVEBEHAVIOR_H
+#ifndef MOVEABLE_H
+#define MOVEABLE_H
 
 #include <SFML/Graphics.hpp>
 
@@ -17,4 +17,4 @@ public:
 	void setSpeed(float _s);
 };
 
-#endif // !MOVEBEHAVIOR_H
+#endif // !MOVEABLE_H

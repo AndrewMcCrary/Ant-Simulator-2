@@ -17,6 +17,9 @@ ant::ant(float _x, float _y, float _angle = 0.f) {
 }
 
 void ant::tick(float _delta) {
-	
+    this->getAsset().move(cosf((90.f - this->getRotation()) * M_PI / 180.f) * this->getSpeed() * _delta,
+                          -sinf((90.f - this->getRotation()) * M_PI / 180.f) * this->getSpeed() * _delta);
+
+
 }
 
