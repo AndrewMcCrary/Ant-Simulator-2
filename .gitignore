@@ -36,8 +36,11 @@
 *.userosscache
 *.sln.docstates
 
-x64/
-x86/
+x64/*
+x86/*
+
+Debug/*
+Release/*
 
 ipch/
 *.aps
@@ -48,4 +51,3 @@ ipch/
 *.cachefile
 *.VC.db
 *.VC.VC.opendb
-.vs
