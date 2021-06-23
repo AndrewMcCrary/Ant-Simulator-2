@@ -13,8 +13,7 @@ protected:
 	void setAsset(sf::ConvexShape _asset);
 
 public:
-	obj();
-	obj(float _x, float _y, sf::ConvexShape _asset);
+	obj(sf::ConvexShape _asset);
 
 
 	float getRotation();

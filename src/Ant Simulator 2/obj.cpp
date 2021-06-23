@@ -1,11 +1,7 @@
 #include "obj.h"
 
-obj::obj() {
-
-}
-
-obj::obj(float _x, float _y, sf::ConvexShape _asset) {
-
+obj::obj(sf::ConvexShape _asset) {
+	this->asset = _asset;
 }
 
 sf::ConvexShape obj::getAsset() {
