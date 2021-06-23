@@ -150,12 +150,14 @@
     <ClCompile Include="moveBehavior.cpp" />
     <ClCompile Include="obj.cpp" />
     <ClCompile Include="window.cpp" />
+    <ClCompile Include="world.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ant.h" />
     <ClInclude Include="moveBehavior.h" />
     <ClInclude Include="obj.h" />
     <ClInclude Include="window.h" />
+    <ClInclude Include="world.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
