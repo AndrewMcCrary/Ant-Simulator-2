@@ -43,9 +43,10 @@ x86/*
 
 Debug/*
 Release/*
-
 src/Debug/*
 src/Release/*
+src/Ant Simulator 2/Debug/*
+src/Ant Simulator 2/Release/*
 
 .vs/*
 src/.vs/*
