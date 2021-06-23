@@ -21,7 +21,7 @@
     <ClCompile Include="obj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="moveBehavior.cpp">
+    <ClCompile Include="moveable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ant.cpp">
@@ -38,7 +38,7 @@
     <ClInclude Include="obj.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="moveBehavior.h">
+    <ClInclude Include="moveable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ant.h">

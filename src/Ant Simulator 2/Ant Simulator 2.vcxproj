@@ -147,14 +147,14 @@
   <ItemGroup>
     <ClCompile Include="ant.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="moveBehavior.cpp" />
+    <ClCompile Include="moveable.cpp" />
     <ClCompile Include="obj.cpp" />
     <ClCompile Include="window.cpp" />
     <ClCompile Include="world.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ant.h" />
-    <ClInclude Include="moveBehavior.h" />
+    <ClInclude Include="moveable.h" />
     <ClInclude Include="obj.h" />
     <ClInclude Include="window.h" />
     <ClInclude Include="world.h" />
