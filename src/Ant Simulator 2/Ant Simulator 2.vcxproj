@@ -146,9 +146,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="moveBehavior.cpp" />
     <ClCompile Include="obj.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="moveBehavior.h" />
     <ClInclude Include="obj.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
