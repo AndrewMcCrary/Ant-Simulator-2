@@ -42,6 +42,8 @@ x86/*
 Debug/*
 Release/*
 
+.vs/*
+
 ipch/
 *.aps
 *.ncb
