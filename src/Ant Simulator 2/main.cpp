@@ -27,7 +27,7 @@ int fmain(void)
 }
 
 int main(void) {
-
+    window* w = new window(WINDOW_RES_X, WINDOW_RES_Y, TICK_60HZ);
 
     return 0;
 }

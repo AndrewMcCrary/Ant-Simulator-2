@@ -11,6 +11,7 @@ bool world::tick(float _delta) {
 	for (size_t i = 0; i < this->getAnts().size(); i++) {
 		this->getAnts()[i]->tick(_delta);
 	}
+	return true;
 }
 
 size_t world::getWidth() {

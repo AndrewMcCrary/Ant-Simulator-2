@@ -10,15 +10,15 @@
 class obj {
 	
 private:
-	sf::ConvexShape asset;
+	sf::ConvexShape* asset;
 
 protected:
-	sf::ConvexShape getAsset();
-	void setAsset(sf::ConvexShape _asset);
+	void setAsset(sf::ConvexShape* _asset);
 
 public:
 	obj();
-	obj(sf::ConvexShape _asset);
+	obj(sf::ConvexShape* _asset);
+	sf::ConvexShape* getAsset();
 
 	float getRotation();
 	virtual void setRotation(float _a);

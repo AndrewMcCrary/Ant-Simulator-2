@@ -8,7 +8,7 @@
 class moveable : public obj {
 
 private:
-	float speed;
+	float speed = 0;
 
 public:
 	virtual void tick(float _delta) = 0;

@@ -15,6 +15,9 @@ window::window(int resX, int resY, float tickRate) {
 	Clock c;
 	float dt = 1.f / tickRate;
 
+	w->addAnt(new ant(WINDOW_RES_X / 2.f, WINDOW_RES_Y / 2.f, 90.f));
+
+
 	while (win.isOpen()) {
 		Event e;
 		while (win.pollEvent(e)) {
@@ -28,8 +31,8 @@ window::window(int resX, int resY, float tickRate) {
 		// Click to move
 		if (Mouse::isButtonPressed(Mouse::Button::Left))
 			if (Mouse::getPosition(win).x > 0 && Mouse::getPosition(win).x < WINDOW_RES_X && Mouse::getPosition(win).y > 0 && Mouse::getPosition(win).y < WINDOW_RES_Y) {
-				w->getAnts()[0]->moveToPoint(Mouse::getPosition(win).x, Mouse::getPosition(win).y);
-
+				w->getAnts()[0]->setRotation(Mouse::getPosition(win).x - w->getAnts()[0]->getX(),
+											 Mouse::getPosition(win).y - w->getAnts()[0]->getY());
 			}
 
 
@@ -37,8 +40,13 @@ window::window(int resX, int resY, float tickRate) {
 		win.clear(BACK_COLOR);
 
 		// update world
+		w->tick(tickRate * dt);
+
 
 		// Draw all objs
+		for (size_t i = 0; i < w->getAnts().size(); i++) {
+			win.draw(*w->getAnts()[i]->getAsset());
+		}
 
 		win.display();
 
