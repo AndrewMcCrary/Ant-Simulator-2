@@ -19,7 +19,7 @@ window::window(int resX, int resY, float tickRate) {
 	//w->addAnt(new ant(WINDOW_RES_X / 2.f, WINDOW_RES_Y / 2.f, 100.f));
 	//w->addAnt(new ant(WINDOW_RES_X / 2.f, WINDOW_RES_Y / 2.f, 90.f));
 
-	for (int i = 0; i < 50; i++) {
+	for (int i = 0; i < 360; i++) {
 		w->addAnt(new ant(WINDOW_RES_X / 2.f, WINDOW_RES_Y / 2.f, (float)i));
 	}
 
