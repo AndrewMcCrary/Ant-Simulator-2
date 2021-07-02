@@ -60,8 +60,17 @@ void ant::setRotation(float _dx, float _dy, float _delta) {
 void ant::wander(float _coeff, float _delta) {
     float _r = (float)rand() / RAND_MAX;
     if (_r > _coeff) {
-        _r = (_r - 1 + ((1 - ANT_WANDER_COEFF) / 2))/(1-ANT_WANDER_COEFF);
-        this->setRotation(this->getRotation() + _r * MAX_TURN_PER_TICK);
-        std::cout << this->getRotation() << std::endl;
+        _r = 2*(_r - 1 + ((1 - ANT_WANDER_COEFF) / 2))/(1-ANT_WANDER_COEFF);
+        this->_turnRate += _r*ANT_WANDER_COEFF;
+
+        if (this->_turnRate > 1) {
+            this->_turnRate = 1;
+            this->_turnRate = pow(this->_turnRate, 1.1);
+        } else if (this->_turnRate < -1) {
+            this->_turnRate = -1;
+            this->_turnRate = -pow(abs(this->_turnRate), 1.1);
+        }
+
+        this->setRotation(this->getRotation() + (this->_turnRate * MAX_TURN_PER_TICK));
     }
 }

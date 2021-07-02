@@ -2,12 +2,12 @@
 #define ANT_H
 
 #define LIMIT_TURN_SPEED true
-#define MAX_TURN_PER_TICK 4.f
-#define SPEED 3.f
+#define MAX_TURN_PER_TICK 2.f
+#define SPEED 2.f
 #define ANT_COLOR sf::Color(255, 65, 30)
 
 // Percentage likelyhood to not change direction per tick
-#define ANT_WANDER_COEFF .0001f
+#define ANT_WANDER_COEFF .1f
 
 #define _USE_MATH_DEFINES
 
@@ -23,7 +23,8 @@ class ant : public moveable {
 
 
 private:
-	
+	// [-1,1], % of max turn rate per tick
+	float _turnRate;
 
 public:
 	ant(float _x, float _y, float _angle);

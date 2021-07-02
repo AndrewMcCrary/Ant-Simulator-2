@@ -10,6 +10,16 @@ world::world(size_t _width, size_t _height) {
 bool world::tick(float _delta) {
 	for (size_t i = 0; i < this->getAnts().size(); i++) {
 		this->getAnts()[i]->tick(_delta);
+		if (this->getAnts()[i]->getX() > WINDOW_RES_X) {
+			this->getAnts()[i]->setX(0.f);
+		} else if (this->getAnts()[i]->getX() < 0) {
+			this->getAnts()[i]->setX(WINDOW_RES_X);
+		}
+		if (this->getAnts()[i]->getY() > WINDOW_RES_Y) {
+			this->getAnts()[i]->setY(0.f);
+		} else if (this->getAnts()[i]->getY() < 0) {
+			this->getAnts()[i]->setY(WINDOW_RES_Y);
+		}
 	}
 	return true;
 }
