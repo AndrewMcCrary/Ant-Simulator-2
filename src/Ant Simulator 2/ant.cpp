@@ -1,6 +1,7 @@
 #include "ant.h"
 
 ant::ant(float _x, float _y, float _angle) {
+    srand((unsigned)time(NULL));
 	sf::ConvexShape* temp = new sf::ConvexShape();
 
     temp->setPointCount(3);
@@ -20,7 +21,7 @@ ant::ant(float _x, float _y, float _angle) {
 void ant::tick(float _delta) {
     this->getAsset()->move(cosf((90.f - this->getRotation()) * M_PI / 180.f) * this->getSpeed() * _delta,
                           -sinf((90.f - this->getRotation()) * M_PI / 180.f) * this->getSpeed() * _delta);
-
+    this->wander(ANT_WANDER_COEFF, _delta);
 }
 
 void ant::setRotation(float _a, float _delta) {
@@ -54,4 +55,13 @@ void ant::setRotation(float _dx, float _dy, float _delta) {
         this->setRotation(atan(_dy / _dx) * 180.f / M_PI - 90.f, _delta);
     else
         this->setRotation(atan(_dy / _dx) * 180.f / M_PI + 90.f, _delta);
+}
+
+void ant::wander(float _coeff, float _delta) {
+    float _r = (float)rand() / RAND_MAX;
+    if (_r > _coeff) {
+        _r = (_r - 1 + ((1 - ANT_WANDER_COEFF) / 2))/(1-ANT_WANDER_COEFF);
+        this->setRotation(this->getRotation() + _r * MAX_TURN_PER_TICK);
+        std::cout << this->getRotation() << std::endl;
+    }
 }
