@@ -21,8 +21,8 @@
 //======================================
 // Window Properties
 
-#define WINDOW_RES_X 1280
-#define WINDOW_RES_Y 720
+#define WINDOW_RES_X 1920
+#define WINDOW_RES_Y 1080
 
 #define WINDOW_TITLE "Ant Simulator"
 

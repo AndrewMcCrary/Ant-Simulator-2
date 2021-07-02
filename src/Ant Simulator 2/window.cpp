@@ -15,8 +15,13 @@ window::window(int resX, int resY, float tickRate) {
 	Clock c;
 	float dt = 1.f / tickRate;
 
-	w->addAnt(new ant(WINDOW_RES_X / 2.f, WINDOW_RES_Y / 2.f, 90.f));
+	//w->addAnt(new ant(WINDOW_RES_X / 2.f, WINDOW_RES_Y / 2.f, 95.f));
+	//w->addAnt(new ant(WINDOW_RES_X / 2.f, WINDOW_RES_Y / 2.f, 100.f));
+	//w->addAnt(new ant(WINDOW_RES_X / 2.f, WINDOW_RES_Y / 2.f, 90.f));
 
+	for (int i = 0; i < 360; i++) {
+		w->addAnt(new ant(WINDOW_RES_X / 2.f, WINDOW_RES_Y / 2.f, (float)i));
+	}
 
 	while (win.isOpen()) {
 		Event e;

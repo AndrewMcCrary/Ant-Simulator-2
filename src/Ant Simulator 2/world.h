@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "ant.h"
+#include "window.h"
 
 #define BACK_COLOR sf::Color(25, 16, 6)
 

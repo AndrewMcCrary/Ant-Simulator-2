@@ -1,12 +1,14 @@
 #include "ant.h"
 
 ant::ant(float _x, float _y, float _angle) {
+    srand((unsigned)time(NULL));
+    this->_turnRate = 0;
 	sf::ConvexShape* temp = new sf::ConvexShape();
 
     temp->setPointCount(3);
-    temp->setPoint(0, sf::Vector2f(0.f, -10.f));
-    temp->setPoint(1, sf::Vector2f(7.5f, 10.f));
-    temp->setPoint(2, sf::Vector2f(-7.5f, 10.f));
+    temp->setPoint(0, sf::Vector2f(0.f, -5.f));
+    temp->setPoint(1, sf::Vector2f(3.75f, 5.f));
+    temp->setPoint(2, sf::Vector2f(-3.75f, 5.f));
     temp->setFillColor(ANT_COLOR);
 
     temp->setPosition(_x, _y);
@@ -18,9 +20,16 @@ ant::ant(float _x, float _y, float _angle) {
 }
 
 void ant::tick(float _delta) {
+    this->wander(ANT_WANDER_COEFF, _delta);
     this->getAsset()->move(cosf((90.f - this->getRotation()) * M_PI / 180.f) * this->getSpeed() * _delta,
                           -sinf((90.f - this->getRotation()) * M_PI / 180.f) * this->getSpeed() * _delta);
 
+
+
+
+    // Check if there is food
+    // Check if there is a to food trail
+    // 
 }
 
 void ant::setRotation(float _a, float _delta) {
@@ -54,4 +63,23 @@ void ant::setRotation(float _dx, float _dy, float _delta) {
         this->setRotation(atan(_dy / _dx) * 180.f / M_PI - 90.f, _delta);
     else
         this->setRotation(atan(_dy / _dx) * 180.f / M_PI + 90.f, _delta);
+}
+
+void ant::wander(float _coeff, float _delta) {
+    float _r = (float)rand() / RAND_MAX;
+    if (_r > _coeff) {
+        _r = 2*(_r - 1 + ((1 - ANT_WANDER_COEFF) / 2))/(1-ANT_WANDER_COEFF);
+        this->_turnRate += _r*ANT_WANDER_COEFF;
+
+        //if (this->_turnRate > 1) {
+        //    this->_turnRate = 1;
+        //    this->_turnRate = pow(this->_turnRate, 1.1);
+        //} else if (this->_turnRate < -1) {
+        //    this->_turnRate = -1;
+        //    this->_turnRate = -pow(abs(this->_turnRate), 1.3);
+        //}
+
+        this->_turnRate /= 1.01f;
+        this->setRotation(this->getRotation() + (this->_turnRate * MAX_TURN_PER_TICK));
+    }
 }
