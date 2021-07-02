@@ -2,7 +2,7 @@
 #define ANT_H
 
 #define LIMIT_TURN_SPEED true
-#define MAX_TURN_PER_TICK 3.f
+#define MAX_TURN_PER_TICK 4.f
 #define SPEED 3.f
 #define ANT_COLOR sf::Color(255, 65, 30)
 
