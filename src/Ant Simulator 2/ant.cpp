@@ -71,14 +71,6 @@ void ant::wander(float _coeff, float _delta) {
         _r = 2*(_r - 1 + ((1 - ANT_WANDER_COEFF) / 2))/(1-ANT_WANDER_COEFF);
         this->_turnRate += _r*ANT_WANDER_COEFF;
 
-        //if (this->_turnRate > 1) {
-        //    this->_turnRate = 1;
-        //    this->_turnRate = pow(this->_turnRate, 1.1);
-        //} else if (this->_turnRate < -1) {
-        //    this->_turnRate = -1;
-        //    this->_turnRate = -pow(abs(this->_turnRate), 1.3);
-        //}
-
         this->_turnRate /= 1.01f;
         this->setRotation(this->getRotation() + (this->_turnRate * MAX_TURN_PER_TICK));
     }

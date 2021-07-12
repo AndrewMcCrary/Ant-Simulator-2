@@ -1,18 +1,18 @@
 #include "obj.h"
 
 obj::obj() {
-	this->asset = (sf::ConvexShape*)nullptr;
+	this->asset = (sf::Shape*)nullptr;
 }
 
-obj::obj(sf::ConvexShape* _asset) {
+obj::obj(sf::Shape* _asset) {
 	this->asset = _asset;
 }
 
-sf::ConvexShape* obj::getAsset() {
+sf::Shape* obj::getAsset() {
 	return this->asset;
 }
 
-void obj::setAsset(sf::ConvexShape* _asset) {
+void obj::setAsset(sf::Shape* _asset) {
 	this->asset = _asset;
 }
 

@@ -20,7 +20,6 @@
 
 class ant : public moveable {
 
-
 private:
 	// [-1,1], % of max turn rate per tick
 	float _turnRate;
