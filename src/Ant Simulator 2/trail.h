@@ -17,7 +17,7 @@ private:
 
 public:
 
-	trail(float _x, float _y, trailType _t, float _milSeconds);
+	trail(float _x, float _y, trailType _t, float _seconds);
 
 	void tick(float _delta);
 

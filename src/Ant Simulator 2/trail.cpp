@@ -1,7 +1,7 @@
 #include "trail.h"
 
-trail::trail(float _x, float _y, trailType _t, float _milSeconds) {
-	sf::CircleShape* temp = new sf::CircleShape((float)_milSeconds / 10.f);
+trail::trail(float _x, float _y, trailType _t, float _seconds) {
+	sf::CircleShape* temp = new sf::CircleShape(_seconds / 10.f);
 	temp->setPosition(_x, _y);
 	this->t = _t;
 	if (_t == trailType::ToHome)

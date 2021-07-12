@@ -21,8 +21,8 @@ ant::ant(float _x, float _y, float _angle) {
 
 void ant::tick(float _delta) {
     this->wander(ANT_WANDER_COEFF, _delta);
-    this->getAsset()->move(cosf((90.f - this->getRotation()) * M_PI / 180.f) * this->getSpeed() * _delta,
-                          -sinf((90.f - this->getRotation()) * M_PI / 180.f) * this->getSpeed() * _delta);
+    this->getAsset()->move(cosf((90.f - this->getRotation()) * (float)M_PI / 180.f) * this->getSpeed() * _delta,
+                          -sinf((90.f - this->getRotation()) * (float)M_PI / 180.f) * this->getSpeed() * _delta);
 
 
 
@@ -60,9 +60,9 @@ void ant::setRotation(float _a, float _delta) {
 
 void ant::setRotation(float _dx, float _dy, float _delta) {
     if (_dx < 0)
-        this->setRotation(atan(_dy / _dx) * 180.f / M_PI - 90.f, _delta);
+        this->setRotation(atan(_dy / _dx) * 180.f / (float)M_PI - 90.f, _delta);
     else
-        this->setRotation(atan(_dy / _dx) * 180.f / M_PI + 90.f, _delta);
+        this->setRotation(atan(_dy / _dx) * 180.f / (float)M_PI + 90.f, _delta);
 }
 
 void ant::wander(float _coeff, float _delta) {
