@@ -40,6 +40,7 @@ void world::setHeight(size_t _height) {
 	this->height = _height;
 }
 
+// Ant methods
 std::vector<ant*> world::getAnts() {
 	return this->ants;
 }
@@ -47,3 +48,22 @@ std::vector<ant*> world::getAnts() {
 void world::addAnt(ant* _a) {
 	this->ants.push_back(_a);
 }
+
+// Home methods
+std::vector<home*> world::getHomes() {
+	return this->homes;
+}
+
+void world::addHome(home* _h) {
+	this->homes.push_back(_h);
+}
+
+// Trail methods
+std::vector<trail*> world::getTrails() {
+	return this->trails;
+}
+
+void world::addTrail(trail* _h) {
+	this->trails.push_back(_h);
+}
+

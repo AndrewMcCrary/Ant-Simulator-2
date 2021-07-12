@@ -23,6 +23,11 @@ window::window(int resX, int resY, float tickRate) {
 		w->addAnt(new ant(WINDOW_RES_X / 2.f, WINDOW_RES_Y / 2.f, (float)i));
 	}
 
+	w->addHome(new home(500, 500, 30));
+	w->addTrail(new trail(300, 300, trailType::ToHome, 500));
+	w->addTrail(new trail(300, 600, trailType::ToFood, 500));
+
+
 	while (win.isOpen()) {
 		Event e;
 		while (win.pollEvent(e)) {
@@ -52,6 +57,14 @@ window::window(int resX, int resY, float tickRate) {
 		// Draw all objs
 		for (size_t i = 0; i < w->getAnts().size(); i++) {
 			win.draw(*w->getAnts()[i]->getAsset());
+		}
+
+		for (size_t i = 0; i < w->getHomes().size(); i++) {
+			win.draw(*w->getHomes()[i]->getAsset());
+		}
+
+		for (size_t i = 0; i < w->getTrails().size(); i++) {
+			win.draw(*w->getTrails()[i]->getAsset());
 		}
 
 		win.display();
