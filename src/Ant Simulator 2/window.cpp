@@ -41,9 +41,9 @@ window::window(int resX, int resY, float tickRate) {
 		// Click to move
 		if (Mouse::isButtonPressed(Mouse::Button::Left))
 			if (Mouse::getPosition(win).x > 0 && Mouse::getPosition(win).x < WINDOW_RES_X && Mouse::getPosition(win).y > 0 && Mouse::getPosition(win).y < WINDOW_RES_Y) {
-				w->getAnts()[0]->setRotation(Mouse::getPosition(win).x - w->getAnts()[0]->getX(),
-											 Mouse::getPosition(win).y - w->getAnts()[0]->getY(),
-											 tickRate * dt);
+				//w->getAnts()[0]->setRotation(Mouse::getPosition(win).x - w->getAnts()[0]->getX(),
+				//							 Mouse::getPosition(win).y - w->getAnts()[0]->getY(),
+				//							 tickRate * dt);
 			}
 
 

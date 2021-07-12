@@ -5,9 +5,9 @@ trail::trail(float _x, float _y, trailType _t, float _seconds) {
 	temp->setPosition(_x, _y);
 	this->t = _t;
 	if (_t == trailType::ToHome)
-		temp->setFillColor(sf::Color(10, 255, 50, 255));
+		temp->setFillColor(sf::Color(50, 50, 50, 255));
 	else
-		temp->setFillColor(sf::Color(255, 50, 10, 255));
+		temp->setFillColor(sf::Color(200, 200, 200, 255));
 
 	this->setAsset(temp);
 }

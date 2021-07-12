@@ -1,10 +1,11 @@
 #include "ant.h"
 
 ant::ant(float _x, float _y, float _angle) {
-    srand((unsigned)time(NULL));
+    srand((unsigned)time(NULL)); // init random
     this->_turnRate = 0;
-	sf::ConvexShape* temp = new sf::ConvexShape();
 
+    // Build asset
+	sf::ConvexShape* temp = new sf::ConvexShape();
     temp->setPointCount(3);
     temp->setPoint(0, sf::Vector2f(0.f, -5.f));
     temp->setPoint(1, sf::Vector2f(3.75f, 5.f));
@@ -14,29 +15,35 @@ ant::ant(float _x, float _y, float _angle) {
     temp->setPosition(_x, _y);
     temp->setRotation(_angle);
 
-
     this->setAsset(temp);
-    this->setSpeed(SPEED);
+    this->setSpeed(SPEED);  // May change in the future
 }
 
 void ant::tick(float _delta) {
     this->wander(ANT_WANDER_COEFF, _delta);
+    this->_turnRate /= TURN_RATE_DIVISOR_PER_TICK;
     this->getAsset()->move(cosf((90.f - this->getRotation()) * (float)M_PI / 180.f) * this->getSpeed() * _delta,
                           -sinf((90.f - this->getRotation()) * (float)M_PI / 180.f) * this->getSpeed() * _delta);
 
 
-
+    
 
     // Check if there is food
     // Check if there is a to food trail
     // 
 }
 
-void ant::setRotation(float _a, float _delta) {
-    while (_a < 0)
-        _a += 360;
+void ant::setRotationLimited(float _a, float _delta) {
+    float _back; // Retrograde angle of the ant
+    if (this->getRotation() > 180) {
+        _back = this->getRotation() - 180.f;
+    } else {
+        _back = this->getRotation() + 180.f;
+    }
 
-    float _back = fmodf(this->getRotation() + 180, 360.f);
+
+    // Since the ant is turning relative to time, it needs to turn in the correct direction
+    // before it has achieved the desired direction
     if (abs(_a - this->getRotation()) > MAX_TURN_PER_TICK * _delta) {
 
         if (this->getRotation() < 180) {
@@ -53,17 +60,15 @@ void ant::setRotation(float _a, float _delta) {
     } else {
         this->setRotation(_a);
     }
-
-
-
 }
 
-void ant::setRotation(float _dx, float _dy, float _delta) {
+void ant::setRotationLimited(float _dx, float _dy, float _delta) {
     if (_dx < 0)
         this->setRotation(atan(_dy / _dx) * 180.f / (float)M_PI - 90.f, _delta);
     else
         this->setRotation(atan(_dy / _dx) * 180.f / (float)M_PI + 90.f, _delta);
 }
+
 
 void ant::wander(float _coeff, float _delta) {
     float _r = (float)rand() / RAND_MAX;
@@ -71,7 +76,6 @@ void ant::wander(float _coeff, float _delta) {
         _r = 2*(_r - 1 + ((1 - ANT_WANDER_COEFF) / 2))/(1-ANT_WANDER_COEFF);
         this->_turnRate += _r*ANT_WANDER_COEFF;
 
-        this->_turnRate /= 1.01f;
         this->setRotation(this->getRotation() + (this->_turnRate * MAX_TURN_PER_TICK));
     }
 }
