@@ -13,12 +13,18 @@ enum class trailType {
 class trail : public moveable {
 
 private:
+	/// <summary>
+	/// Trail type (tohome, tofood)
+	/// </summary>
 	trailType t;
+	/// <summary>
+	/// Seconds remaining
+	/// </summary>
 	float _intensity;
 
 public:
 
-	trail(float _x, float _y, trailType _t, float _seconds);
+	trail(float _x, float _y, trailType _t, float _lifespan);
 
 	/// <summary>
 	/// Method to update trail each tick
