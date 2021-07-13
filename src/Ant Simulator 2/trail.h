@@ -39,7 +39,7 @@ public:
 	float getTicksRemaining();
 	
 	/// <param name="_i">New intensity for the trail in seconds</param>
-	void setTicksRemaining(float _i);
+	void setTicksRemaining(float _t);
 };
 
 #endif // !TRAIL_H

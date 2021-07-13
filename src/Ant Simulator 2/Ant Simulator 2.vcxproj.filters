@@ -65,6 +65,8 @@
     <ClInclude Include="home.h">
       <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="food.h" />
+    <ClInclude Include="food.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

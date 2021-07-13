@@ -8,6 +8,10 @@ obj::obj(sf::Shape* _asset) {
 	this->asset = _asset;
 }
 
+obj::~obj() {
+	delete this->asset;
+}
+
 sf::Shape* obj::getAsset() {
 	return this->asset;
 }
@@ -46,3 +50,5 @@ float obj::getY() {
 void obj::setY(float _y) {
 	this->getAsset()->setPosition(this->getX(), _y);
 }
+
+

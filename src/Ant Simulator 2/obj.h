@@ -18,6 +18,7 @@ protected:
 public:
 	obj();
 	obj(sf::Shape* _asset);
+	~obj();
 	sf::Shape* getAsset();
 
 	float getRotation();
