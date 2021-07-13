@@ -8,6 +8,10 @@ world::world(size_t _width, size_t _height) {
 }
 
 bool world::tick(float _delta) {
+
+
+
+
 	for (size_t i = 0; i < this->getAnts().size(); i++) {
 		this->getAnts()[i]->tick(_delta);
 		if (this->getAnts()[i]->getX() > WINDOW_RES_X) {
@@ -24,18 +28,46 @@ bool world::tick(float _delta) {
 	return true;
 }
 
+bool world::antsTick(float _delta) {
+	for (int i = 0; i < this->getAnts().size(); i++) {
+		if (this->getAnts()[i]->getFoodStatus()) {
+			// Ant is carrying food and looks for to home trail or home
+
+
+
+		} else {
+			// Ant is not carrying food and looks for to food trail or wanders
+
+
+		}
+	}
+	return true;
+}
+
+bool world::trailTick(float _delta) {
+	for (int i = 0; i < this->getTrails().size(); i++) {
+		// If trail intensity is greater than zero, tick and decrease intensity
+		// or if it is <= 0 release the object and remove it from the world
+		if (this->getTrails()[i]->getIntensity() > 0)
+			this->getTrails()[i]->tick(_delta);
+		else {
+			delete this->getTrails()[i];
+			this->getTrails().erase(this->getTrails().begin() + i);
+		}
+	}
+	return true;
+}
+
+// World size methods
 size_t world::getWidth() {
 	return this->width;
 }
-
 void world::setWidth(size_t _width) {
 	this->width = _width;
 }
-
 size_t world::getHeight() {
 	return this->height;
 }
-
 void world::setHeight(size_t _height) {
 	this->height = _height;
 }
@@ -44,7 +76,6 @@ void world::setHeight(size_t _height) {
 std::vector<ant*> world::getAnts() {
 	return this->ants;
 }
-
 void world::addAnt(ant* _a) {
 	this->ants.push_back(_a);
 }
@@ -53,7 +84,6 @@ void world::addAnt(ant* _a) {
 std::vector<home*> world::getHomes() {
 	return this->homes;
 }
-
 void world::addHome(home* _h) {
 	this->homes.push_back(_h);
 }
@@ -62,7 +92,6 @@ void world::addHome(home* _h) {
 std::vector<trail*> world::getTrails() {
 	return this->trails;
 }
-
 void world::addTrail(trail* _h) {
 	this->trails.push_back(_h);
 }

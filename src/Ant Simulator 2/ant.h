@@ -4,6 +4,7 @@
 #define MAX_TURN_PER_TICK 2.f
 #define TURN_RATE_DIVISOR_PER_TICK 1.015f
 #define SPEED 2.f
+#define VIEW_DISTANCE 15.f
 #define ANT_COLOR sf::Color(255, 65, 30)
 
 // Percentage likelyhood to not change direction per tick
@@ -20,8 +21,15 @@
 class ant : public moveable {
 
 private:
-	// [-1,1], % of max turn rate per tick
+	/// <summary>
+	/// [-1,1], % of max turn rate per tick
+	/// </summary>
 	float _turnRate;
+
+	/// <summary>
+	/// True if ant has food
+	/// </summary>
+	bool _hasFood;
 
 public:
 	/// <summary>
@@ -35,29 +43,36 @@ public:
 	/// <summary>
 	/// Method to update ant each tick
 	/// </summary>
-	/// <param name="_delta">Factor difference between framerate and tickrate</param>
+	/// <param name="_delta">Relation between framerate and tickrate</param>
 	void tick(float _delta);
 
 	/// <summary>
 	/// Changes the turnrate of the ant a random amount
 	/// </summary>
 	/// <param name="_coeff">Wandering coefficient, [0,1], percentage likelyhood to not turn</param>
-	/// <param name="_delta">Factor difference between framerate and tickrate</param>
+	/// <param name="_delta">Relation between framerate and tickrate</param>
 	void wander(float _coeff, float _delta);
 
 	/// <summary>
 	/// Sets rotation and takes tickrate and max turnrate into account
 	/// </summary>
 	/// <param name="_a">Angle to work towards</param>
-	/// <param name="_delta">Factor difference between framerate and tickrate</param>
+	/// <param name="_delta">Relation between framerate and tickrate</param>
 	void setRotationLimited(float _a, float _delta);
+
 	/// <summary>
 	/// Sets rotation and takes tickrate into account
 	/// </summary>
 	/// <param name="_dx">X offset from ant</param>
 	/// <param name="_dy">Y offset from ant</param>
-	/// <param name="_delta">Factor difference between framerate and tickrate</param>
+	/// <param name="_delta">Relation between framerate and tickrate</param>
 	void setRotationLimited(float _dx, float _dy, float _delta);
+
+	/// <returns>True if ant has food</returns>
+	bool getFoodStatus();
+
+	/// <param name="_f">New food status</param>
+	void setFoodStatus(bool _f);
 };
 
 #endif // !ANT_H

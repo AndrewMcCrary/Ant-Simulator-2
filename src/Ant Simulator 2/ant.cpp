@@ -79,3 +79,11 @@ void ant::wander(float _coeff, float _delta) {
         this->setRotation(this->getRotation() + (this->_turnRate * MAX_TURN_PER_TICK));
     }
 }
+
+bool ant::getFoodStatus() {
+    return this->_hasFood;
+}
+
+void ant::setFoodStatus(bool _f) {
+    this->_hasFood = _f;
+}

@@ -19,3 +19,11 @@ void trail::tick(float _delta) {
 trailType trail::getTrailType() {
 	return this->t;
 }
+
+float trail::getIntensity() {
+	return this->_intensity;
+}
+
+void trail::setIntensity(float _i) {
+	this->_intensity = _i;
+}
