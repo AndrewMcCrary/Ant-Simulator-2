@@ -39,6 +39,9 @@
     <ClCompile Include="home.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
+    <ClCompile Include="food.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ant.h">
@@ -62,5 +65,6 @@
     <ClInclude Include="home.h">
       <Filter>Objects</Filter>
     </ClInclude>
+    <ClInclude Include="food.h" />
   </ItemGroup>
 </Project>

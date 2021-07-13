@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ant.cpp" />
+    <ClCompile Include="food.cpp" />
     <ClCompile Include="home.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="moveable.cpp" />
@@ -156,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ant.h" />
+    <ClInclude Include="food.h" />
     <ClInclude Include="home.h" />
     <ClInclude Include="moveable.h" />
     <ClInclude Include="obj.h" />

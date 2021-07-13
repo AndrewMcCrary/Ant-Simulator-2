@@ -48,7 +48,7 @@ bool world::trailTick(float _delta) {
 	for (int i = 0; i < this->getTrails().size(); i++) {
 		// If trail intensity is greater than zero, tick and decrease intensity
 		// or if it is <= 0 release the object and remove it from the world
-		if (this->getTrails()[i]->getIntensity() > 0)
+		if (this->getTrails()[i]->getTicksRemaining() > 0)
 			this->getTrails()[i]->tick(_delta);
 		else {
 			delete this->getTrails()[i];

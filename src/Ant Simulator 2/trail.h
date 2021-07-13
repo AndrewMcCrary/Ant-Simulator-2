@@ -20,11 +20,11 @@ private:
 	/// <summary>
 	/// Seconds remaining
 	/// </summary>
-	float _intensity;
+	float _ticksRemaining;
 
 public:
 
-	trail(float _x, float _y, trailType _t, float _lifespan);
+	trail(float _x, float _y, trailType _t, float _ticks);
 
 	/// <summary>
 	/// Method to update trail each tick
@@ -36,10 +36,10 @@ public:
 	trailType getTrailType();
 
 	/// <returns>Intensity; seconds remaining on trail</returns>
-	float getIntensity();
+	float getTicksRemaining();
 	
 	/// <param name="_i">New intensity for the trail in seconds</param>
-	void setIntensity(float _i);
+	void setTicksRemaining(float _i);
 };
 
 #endif // !TRAIL_H

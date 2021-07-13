@@ -14,16 +14,17 @@ trail::trail(float _x, float _y, trailType _t, float _lifespan) {
 
 void trail::tick(float _delta) {
 	// seconds * 10, max ~15
+
 }
 
 trailType trail::getTrailType() {
 	return this->t;
 }
 
-float trail::getIntensity() {
-	return this->_intensity;
+float trail::getTicksRemaining() {
+	return this->_ticksRemaining;
 }
 
-void trail::setIntensity(float _i) {
-	this->_intensity = _i;
+void trail::setTicksRemaining(float _i) {
+	this->_ticksRemaining = _i;
 }
