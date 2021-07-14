@@ -2,8 +2,9 @@
 #define ANT_H
 
 #define MAX_TURN_PER_TICK 2.f
+#define MAX_TURN_DELTA .01f
 #define TURN_RATE_DIVISOR_PER_TICK 1.015f
-#define SPEED 2.f
+#define SPEED 1.f
 #define VIEW_DISTANCE 15.f
 #define ANT_COLOR sf::Color(255, 65, 30)
 

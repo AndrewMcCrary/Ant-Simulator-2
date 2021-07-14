@@ -50,5 +50,3 @@ float obj::getY() {
 void obj::setY(float _y) {
 	this->getAsset()->setPosition(this->getX(), _y);
 }
-
-

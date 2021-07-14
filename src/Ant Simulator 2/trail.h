@@ -21,6 +21,10 @@ private:
 	/// Seconds remaining
 	/// </summary>
 	float _ticksRemaining;
+	/// <summary>
+	/// Visibility of the trail
+	/// </summary>
+	bool _isVisible;
 
 public:
 
@@ -37,9 +41,13 @@ public:
 
 	/// <returns>Intensity; seconds remaining on trail</returns>
 	float getTicksRemaining();
-	
 	/// <param name="_i">New intensity for the trail in seconds</param>
 	void setTicksRemaining(float _t);
+
+	/// <returns>Visibility of the trail</returns>
+	bool isVisible();
+	/// <param name="_v">New visibility</param>
+	void setVisibility(bool _v);
 };
 
 #endif // !TRAIL_H

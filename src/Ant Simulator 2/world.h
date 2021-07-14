@@ -15,6 +15,7 @@
 #include <vector>
 
 #include "ant.h"
+#include "food.h"
 #include "home.h"
 #include "trail.h"
 #include "window.h"
@@ -28,6 +29,7 @@ private:
 	size_t height;
 
 	std::vector<ant*> ants;
+	std::vector<food*> foods;
 	std::vector<home*> homes;
 	std::vector<trail*> trails;
 
@@ -68,6 +70,10 @@ public:
 	std::vector<ant*> getAnts();
 	/// <param name="_a">Ant to add to the world</param>
 	void addAnt(ant* _a);
+
+	std::vector<food*> getFoods();
+	/// <param name="_a">Food to add to the world</param>
+	void addFood(food* _f);
 
 	/// <returns>Vector of pointers to homes within the world</returns>
 	std::vector<home*> getHomes();

@@ -37,13 +37,6 @@ public:
 	/// <param name="_y">The height of the window</param>
 	/// <param name="tickRate">The base frame rate that the program should run, methods scale as the actual frame rate changes from this value</param>
 	window(int resX, int resY, float tickRate);
-
-
 };
 
-
-
-
-
 #endif // !WINDOW_H
-

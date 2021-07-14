@@ -29,7 +29,7 @@ bool world::tick(float _delta) {
 }
 
 bool world::antsTick(float _delta) {
-	for (int i = 0; i < this->getAnts().size(); i++) {
+	for (size_t i = 0; i < this->getAnts().size(); i++) {
 		if (this->getAnts()[i]->getFoodStatus()) {
 			// Ant is carrying food and looks for to home trail or home
 
@@ -40,6 +40,7 @@ bool world::antsTick(float _delta) {
 
 
 		}
+		this->getAnts()[i]->tick(_delta);
 	}
 	return true;
 }
@@ -78,6 +79,14 @@ std::vector<ant*> world::getAnts() {
 }
 void world::addAnt(ant* _a) {
 	this->ants.push_back(_a);
+}
+
+// Food methods
+std::vector<food*> world::getFoods() {
+	return this->foods;
+}
+void world::addFood(food* _f) {
+	this->foods.push_back(_f);
 }
 
 // Home methods

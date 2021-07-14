@@ -23,7 +23,7 @@ void ant::tick(float _delta) {
     this->wander(ANT_WANDER_COEFF, _delta);
     this->_turnRate /= TURN_RATE_DIVISOR_PER_TICK;
     this->getAsset()->move(cosf((90.f - this->getRotation()) * (float)M_PI / 180.f) * this->getSpeed() * _delta,
-                          -sinf((90.f - this->getRotation()) * (float)M_PI / 180.f) * this->getSpeed() * _delta);
+                           -sinf((90.f - this->getRotation()) * (float)M_PI / 180.f) * this->getSpeed() * _delta);
 
 
     

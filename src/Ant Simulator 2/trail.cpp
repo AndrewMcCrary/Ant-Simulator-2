@@ -1,6 +1,6 @@
 #include "trail.h"
 
-trail::trail(float _x, float _y, trailType _t, float _lifespan) {
+trail::trail(float _x, float _y, trailType _t, float _ticks) {
 	sf::CircleShape* temp = new sf::CircleShape(15.f);
 	temp->setPosition(_x, _y);
 	this->t = _t;
@@ -10,6 +10,7 @@ trail::trail(float _x, float _y, trailType _t, float _lifespan) {
 		temp->setFillColor(sf::Color(200, 200, 200, 255));
 
 	this->setAsset(temp);
+	this->_ticksRemaining = _ticks;
 }
 
 void trail::tick(float _delta) {
@@ -24,7 +25,13 @@ trailType trail::getTrailType() {
 float trail::getTicksRemaining() {
 	return this->_ticksRemaining;
 }
-
 void trail::setTicksRemaining(float _i) {
 	this->_ticksRemaining = _i;
+}
+
+bool trail::isVisible() {
+	return this->_isVisible;
+}
+void trail::setVisibility(bool _v) {
+	this->_isVisible = _v;
 }
