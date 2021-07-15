@@ -26,10 +26,10 @@ public:
 	virtual void setRotation(float _dx, float _dy);
 
 	float getX();
-	virtual void setX(float _x);
+	void setX(float _x);
 
 	float getY();
-	virtual void setY(float _y);
+	void setY(float _y);
 };
 
 #endif // !OBJ_H

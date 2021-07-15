@@ -26,9 +26,11 @@ private:
 	/// </summary>
 	bool _isVisible;
 
+
+
 public:
 
-	trail(float _x, float _y, trailType _t, float _ticks);
+	trail(float _x, float _y, trailType _t, float _ticks, bool _isVisible);
 
 	/// <summary>
 	/// Method to update trail each tick

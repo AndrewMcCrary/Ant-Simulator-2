@@ -24,8 +24,8 @@ window::window(int resX, int resY, float tickRate) {
 	}
 
 	w->addHome(new home(500, 500, 30));
-	w->addTrail(new trail(300, 300, trailType::ToHome, 500));
-	w->addTrail(new trail(300, 600, trailType::ToFood, 500));
+	w->addTrail(new trail(300, 300, trailType::ToHome, 700, true));
+	w->addTrail(new trail(300, 600, trailType::ToFood, 500, true));
 
 
 	while (win.isOpen()) {

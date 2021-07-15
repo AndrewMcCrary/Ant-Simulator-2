@@ -8,7 +8,7 @@ world::world(size_t _width, size_t _height) {
 }
 
 bool world::tick(float _delta) {
-
+	this->trailTick(_delta);
 
 
 
@@ -52,8 +52,7 @@ bool world::trailTick(float _delta) {
 		if (this->getTrails()[i]->getTicksRemaining() > 0)
 			this->getTrails()[i]->tick(_delta);
 		else {
-			delete this->getTrails()[i];
-			this->getTrails().erase(this->getTrails().begin() + i);
+			this->eraseTrail(i);
 		}
 	}
 	return true;
@@ -80,6 +79,10 @@ std::vector<ant*> world::getAnts() {
 void world::addAnt(ant* _a) {
 	this->ants.push_back(_a);
 }
+void world::eraseAnt(int _index) {
+	delete this->ants[_index];
+	this->ants.erase(this->ants.begin() + _index);
+}
 
 // Food methods
 std::vector<food*> world::getFoods() {
@@ -87,6 +90,10 @@ std::vector<food*> world::getFoods() {
 }
 void world::addFood(food* _f) {
 	this->foods.push_back(_f);
+}
+void world::eraseFood(int _index) {
+	delete this->foods[_index];
+	this->foods.erase(this->foods.begin() + _index);
 }
 
 // Home methods
@@ -96,6 +103,10 @@ std::vector<home*> world::getHomes() {
 void world::addHome(home* _h) {
 	this->homes.push_back(_h);
 }
+void world::eraseHome(int _index) {
+	delete this->homes[_index];
+	this->homes.erase(this->homes.begin() + _index);
+}
 
 // Trail methods
 std::vector<trail*> world::getTrails() {
@@ -104,4 +115,7 @@ std::vector<trail*> world::getTrails() {
 void world::addTrail(trail* _h) {
 	this->trails.push_back(_h);
 }
-
+void world::eraseTrail(int _index) {
+	delete this->trails[_index];
+	this->trails.erase(this->trails.begin() + _index);
+}

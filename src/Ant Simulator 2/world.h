@@ -70,20 +70,29 @@ public:
 	std::vector<ant*> getAnts();
 	/// <param name="_a">Ant to add to the world</param>
 	void addAnt(ant* _a);
+	/// <param name="_index">Index in the vector to remove</param>
+	void eraseAnt(int _index);
 
+	/// <returns>Vector of pointers to food within the world</returns>
 	std::vector<food*> getFoods();
 	/// <param name="_a">Food to add to the world</param>
 	void addFood(food* _f);
+	/// <param name="_index">Index in the vector to remove</param>
+	void eraseFood(int _index);
 
 	/// <returns>Vector of pointers to homes within the world</returns>
 	std::vector<home*> getHomes();
 	/// <param name="_a">Home to add to the world</param>
 	void addHome(home* _h);
+	/// <param name="_index">Index in the vector to remove</param>
+	void eraseHome(int _index);
 
 	/// <returns>Vector of pointers to trails within the world</returns>
 	std::vector<trail*> getTrails();
 	/// <param name="_a">Trail to add to the world</param>
 	void addTrail(trail* _t);
+	/// <param name="_index">Index in the vector to remove</param>
+	void eraseTrail(int _index);
 
 };
 
