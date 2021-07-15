@@ -7,6 +7,8 @@
 
 #include <SFML/Graphics.hpp>
 
+// TODO Insert comments
+
 class obj {
 	
 private:
@@ -24,6 +26,8 @@ public:
 	float getRotation();
 	virtual void setRotation(float _a);
 	virtual void setRotation(float _dx, float _dy);
+
+	virtual void move(float _x, float _y);
 
 	float getX();
 	void setX(float _x);

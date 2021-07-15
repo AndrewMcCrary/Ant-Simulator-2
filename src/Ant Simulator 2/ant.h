@@ -1,11 +1,13 @@
 #ifndef ANT_H
 #define ANT_H
 
-#define MAX_TURN_PER_TICK 2.f
-#define MAX_TURN_DELTA .01f
-#define TURN_RATE_DIVISOR_PER_TICK 1.015f
+// Max turn rate per tick
+#define MAX_TURN_RATE 2.f
+// Max turn acceleration per tick
+#define MAX_TURN_ACCEL .01f
 #define SPEED 1.f
 #define VIEW_DISTANCE 15.f
+#define TURN_RATE_DIVISOR_PER_TICK 1.015f
 #define ANT_COLOR sf::Color(255, 65, 30)
 
 // Percentage likelyhood to not change direction per tick
@@ -60,7 +62,6 @@ public:
 	/// <param name="_a">Angle to work towards</param>
 	/// <param name="_delta">Relation between framerate and tickrate</param>
 	void setRotationLimited(float _a, float _delta);
-
 	/// <summary>
 	/// Sets rotation and takes tickrate into account
 	/// </summary>
@@ -71,7 +72,6 @@ public:
 
 	/// <returns>True if ant has food</returns>
 	bool getFoodStatus();
-
 	/// <param name="_f">New food status</param>
 	void setFoodStatus(bool _f);
 };

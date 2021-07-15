@@ -1,6 +1,7 @@
 #include "obj.h"
 
 obj::obj() {
+	// TODO: Insert default image
 	this->asset = (sf::Shape*)nullptr;
 }
 
@@ -33,6 +34,10 @@ void obj::setRotation(float _dx, float _dy) {
 		this->setRotation((atan(_dy / _dx) * 180.f / (float)M_PI - 90.f));
 	else
 		this->setRotation(atan(_dy / _dx) * 180.f / (float)M_PI + 90.f);
+}
+
+void obj::move(float _x, float _y) {
+	this->asset->move(_x, _y);
 }
 
 float obj::getX() {

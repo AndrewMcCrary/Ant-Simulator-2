@@ -5,6 +5,8 @@
 
 #include "obj.h"
 
+// TODO Insert comments
+
 class moveable : public obj {
 
 private:

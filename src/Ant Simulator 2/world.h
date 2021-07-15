@@ -1,12 +1,6 @@
 //	NOTES:
 //	May try to do chunking in the future if performace is an issue
 //
-//
-//
-//
-//
-//
-
 
 #ifndef WORLD_H
 #define WORLD_H

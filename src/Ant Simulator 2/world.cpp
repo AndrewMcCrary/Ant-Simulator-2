@@ -51,9 +51,8 @@ bool world::trailTick(float _delta) {
 		// or if it is <= 0 release the object and remove it from the world
 		if (this->getTrails()[i]->getTicksRemaining() > 0)
 			this->getTrails()[i]->tick(_delta);
-		else {
+		else 
 			this->eraseTrail(i);
-		}
 	}
 	return true;
 }

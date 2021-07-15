@@ -24,9 +24,8 @@ window::window(int resX, int resY, float tickRate) {
 	}
 
 	w->addHome(new home(500, 500, 30));
-	w->addTrail(new trail(300, 300, trailType::ToHome, 700, true));
-	w->addTrail(new trail(300, 600, trailType::ToFood, 500, true));
-
+	w->addTrail(new trail(300, 300, trailType::ToHome, LIFETIME, true));
+	w->addTrail(new trail(300, 600, trailType::ToFood, LIFETIME, true));
 
 	while (win.isOpen()) {
 		Event e;
@@ -52,7 +51,6 @@ window::window(int resX, int resY, float tickRate) {
 
 		// update world
 		w->tick(tickRate * dt);
-
 
 		// Draw all objs
 		for (size_t i = 0; i < w->getAnts().size(); i++) {

@@ -3,6 +3,7 @@
 ant::ant(float _x, float _y, float _angle) {
     srand((unsigned)time(NULL)); // init random
     this->_turnRate = 0;
+    this->_hasFood = false;
 
     // Build asset
 	sf::ConvexShape* temp = new sf::ConvexShape();
@@ -35,27 +36,25 @@ void ant::tick(float _delta) {
 
 void ant::setRotationLimited(float _a, float _delta) {
     float _back; // Retrograde angle of the ant
-    if (this->getRotation() > 180) {
+    if (this->getRotation() > 180)
         _back = this->getRotation() - 180.f;
-    } else {
+    else
         _back = this->getRotation() + 180.f;
-    }
-
 
     // Since the ant is turning relative to time, it needs to turn in the correct direction
     // before it has achieved the desired direction
-    if (abs(_a - this->getRotation()) > MAX_TURN_PER_TICK * _delta) {
+    if (abs(_a - this->getRotation()) > MAX_TURN_RATE * _delta) {
 
         if (this->getRotation() < 180) {
             if (_a > this->getRotation() && _a < _back)
-                this->setRotation(this->getRotation() + MAX_TURN_PER_TICK);
+                this->setRotation(this->getRotation() + MAX_TURN_RATE);
             else
-                this->setRotation(this->getRotation() - MAX_TURN_PER_TICK);
+                this->setRotation(this->getRotation() - MAX_TURN_RATE);
         } else {
             if (_a < this->getRotation() && _a > _back)
-                this->setRotation(this->getRotation() - MAX_TURN_PER_TICK);
+                this->setRotation(this->getRotation() - MAX_TURN_RATE);
             else
-                this->setRotation(this->getRotation() + MAX_TURN_PER_TICK);
+                this->setRotation(this->getRotation() + MAX_TURN_RATE);
         }
     } else {
         this->setRotation(_a);
@@ -70,13 +69,13 @@ void ant::setRotationLimited(float _dx, float _dy, float _delta) {
 }
 
 
-void ant::wander(float _coeff, float _delta) {
+void ant::wander(float _coeff, float _delta) { // TODO Revist wander and implement other movement
     float _r = (float)rand() / RAND_MAX;
     if (_r > _coeff) {
         _r = 2*(_r - 1 + ((1 - ANT_WANDER_COEFF) / 2))/(1-ANT_WANDER_COEFF);
         this->_turnRate += _r*ANT_WANDER_COEFF;
 
-        this->setRotation(this->getRotation() + (this->_turnRate * MAX_TURN_PER_TICK));
+        this->setRotation(this->getRotation() + (this->_turnRate * MAX_TURN_RATE));
     }
 }
 

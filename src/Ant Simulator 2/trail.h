@@ -1,7 +1,9 @@
 #ifndef TRAIL_H
 #define TRAIL_H
 
-#define INTENSITY_DECREASE_PER_TICK .5f
+#define RADIUS_DIVISOR 10.f
+#define MAX_RADIUS 50.f
+#define LIFETIME 600
 
 #include "moveable.h"
 
@@ -20,7 +22,7 @@ private:
 	/// <summary>
 	/// Seconds remaining
 	/// </summary>
-	float _ticksRemaining;
+	int _ticksRemaining;
 	/// <summary>
 	/// Visibility of the trail
 	/// </summary>
@@ -30,7 +32,7 @@ private:
 
 public:
 
-	trail(float _x, float _y, trailType _t, float _ticks, bool _isVisible);
+	trail(float _x, float _y, trailType _t, int _ticks, bool _isVisible);
 
 	/// <summary>
 	/// Method to update trail each tick
@@ -42,9 +44,9 @@ public:
 	trailType getTrailType();
 
 	/// <returns>Intensity; seconds remaining on trail</returns>
-	float getTicksRemaining();
+	int getTicksRemaining();
 	/// <param name="_i">New intensity for the trail in seconds</param>
-	void setTicksRemaining(float _t);
+	void setTicksRemaining(int _t);
 
 	/// <returns>Visibility of the trail</returns>
 	bool isVisible();
