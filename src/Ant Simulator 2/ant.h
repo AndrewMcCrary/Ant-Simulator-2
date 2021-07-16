@@ -6,7 +6,9 @@
 // Max turn acceleration per tick
 #define MAX_TURN_ACCEL .01f
 #define SPEED 1.f
-#define VIEW_DISTANCE 15.f
+#define VIEW_DISTANCE 25.f
+#define PICKUP_DISTANCE 3.f
+#define TRAIL_DROP_RATE 60
 #define TURN_RATE_DIVISOR_PER_TICK 1.015f
 #define ANT_COLOR sf::Color(255, 65, 30)
 
@@ -33,6 +35,11 @@ private:
 	/// True if ant has food
 	/// </summary>
 	bool _hasFood;
+
+	/// <summary>
+	/// Number of ticks until trail is dropped
+	/// </summary>
+	int _ticksUntilTrail;
 
 public:
 	/// <summary>
@@ -74,6 +81,15 @@ public:
 	bool getFoodStatus();
 	/// <param name="_f">New food status</param>
 	void setFoodStatus(bool _f);
+
+	/// <returns>Ticks until trail is dropped</returns>
+	int getTrailTickCounter();
+	/// <param name="_t">New number of ticks until trail</param>
+	void setTrailTickCounter(int _t);
+	/// <summary>
+	/// Resets tick counter
+	/// </summary>
+	void resetTrailTickCounter();
 };
 
 #endif // !ANT_H

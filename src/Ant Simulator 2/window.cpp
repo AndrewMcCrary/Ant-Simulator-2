@@ -15,17 +15,14 @@ window::window(int resX, int resY, float tickRate) {
 	Clock c;
 	float dt = 1.f / tickRate;
 
-	//w->addAnt(new ant(WINDOW_RES_X / 2.f, WINDOW_RES_Y / 2.f, 95.f));
-	//w->addAnt(new ant(WINDOW_RES_X / 2.f, WINDOW_RES_Y / 2.f, 100.f));
-	//w->addAnt(new ant(WINDOW_RES_X / 2.f, WINDOW_RES_Y / 2.f, 90.f));
 
-	for (int i = 0; i < 720; i++) {
+	for (int i = 0; i < 360; i++) {
 		w->addAnt(new ant(WINDOW_RES_X / 2.f, WINDOW_RES_Y / 2.f, (float)i));
 	}
 
 	w->addHome(new home(500, 500, 30));
-	w->addTrail(new trail(300, 300, trailType::ToHome, LIFETIME, true));
-	w->addTrail(new trail(300, 600, trailType::ToFood, LIFETIME, true));
+	w->addTrail(new trail(300, 300, trailType::ToHome, TRAIL_LIFETIME, true));
+	w->addTrail(new trail(300, 600, trailType::ToFood, TRAIL_LIFETIME, true));
 
 	while (win.isOpen()) {
 		Event e;
@@ -40,9 +37,8 @@ window::window(int resX, int resY, float tickRate) {
 		// Click to move
 		if (Mouse::isButtonPressed(Mouse::Button::Left))
 			if (Mouse::getPosition(win).x > 0 && Mouse::getPosition(win).x < WINDOW_RES_X && Mouse::getPosition(win).y > 0 && Mouse::getPosition(win).y < WINDOW_RES_Y) {
-				//w->getAnts()[0]->setRotation(Mouse::getPosition(win).x - w->getAnts()[0]->getX(),
-				//							 Mouse::getPosition(win).y - w->getAnts()[0]->getY(),
-				//							 tickRate * dt);
+				w->addFood(new food(Mouse::getPosition(win).x, Mouse::getPosition(win).y));
+				//w->addTrail(new trail(Mouse::getPosition(win).x, Mouse::getPosition(win).y, trailType::ToFood, TRAIL_LIFETIME, true));
 			}
 
 
@@ -53,6 +49,15 @@ window::window(int resX, int resY, float tickRate) {
 		w->tick(tickRate * dt);
 
 		// Draw all objs
+		for (size_t i = 0; i < w->getFoods().size(); i++) {
+			win.draw(*w->getFoods()[i]->getAsset());
+		}
+
+		if (VISIBLE_TRAILS)
+			for (size_t i = 0; i < w->getTrails().size(); i++) {
+				win.draw(*w->getTrails()[i]->getAsset());
+			}
+
 		for (size_t i = 0; i < w->getAnts().size(); i++) {
 			win.draw(*w->getAnts()[i]->getAsset());
 		}
@@ -61,9 +66,6 @@ window::window(int resX, int resY, float tickRate) {
 			win.draw(*w->getHomes()[i]->getAsset());
 		}
 
-		for (size_t i = 0; i < w->getTrails().size(); i++) {
-			win.draw(*w->getTrails()[i]->getAsset());
-		}
 
 		win.display();
 

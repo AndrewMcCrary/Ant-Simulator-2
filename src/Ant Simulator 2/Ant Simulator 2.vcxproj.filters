@@ -7,9 +7,6 @@
     <Filter Include="Primitives">
       <UniqueIdentifier>{43360ee6-4f1d-4003-825e-3a1962a72e38}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine">
-      <UniqueIdentifier>{26209e49-44ef-44d8-950a-8b4e1a1333bd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source">
       <UniqueIdentifier>{d10a07fd-689d-4c4c-b8fd-e402737012e1}</UniqueIdentifier>
     </Filter>
@@ -27,12 +24,6 @@
     <ClCompile Include="trail.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="world.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="window.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -41,6 +32,12 @@
     </ClCompile>
     <ClCompile Include="food.cpp">
       <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="window.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="world.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,17 +53,17 @@
     <ClInclude Include="trail.h">
       <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="window.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="world.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="home.h">
       <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="food.h">
       <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="world.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="window.h">
+      <Filter>Source</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 #include "obj.h"
 
 obj::obj() {
-	// TODO: Insert default image
+	// TODO Insert default image
 	this->asset = (sf::Shape*)nullptr;
 }
 

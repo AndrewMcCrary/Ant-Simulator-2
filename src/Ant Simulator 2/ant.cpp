@@ -23,6 +23,7 @@ ant::ant(float _x, float _y, float _angle) {
 void ant::tick(float _delta) {
     this->wander(ANT_WANDER_COEFF, _delta);
     this->_turnRate /= TURN_RATE_DIVISOR_PER_TICK;
+    this->_ticksUntilTrail--;
     this->getAsset()->move(cosf((90.f - this->getRotation()) * (float)M_PI / 180.f) * this->getSpeed() * _delta,
                            -sinf((90.f - this->getRotation()) * (float)M_PI / 180.f) * this->getSpeed() * _delta);
 
@@ -85,4 +86,16 @@ bool ant::getFoodStatus() {
 
 void ant::setFoodStatus(bool _f) {
     this->_hasFood = _f;
+}
+
+int ant::getTrailTickCounter() {
+    return this->_ticksUntilTrail;
+}
+
+void ant::setTrailTickCounter(int _t) {
+    this->_ticksUntilTrail = _t;
+}
+
+void ant::resetTrailTickCounter() {
+    this->setTrailTickCounter(TRAIL_DROP_RATE);
 }

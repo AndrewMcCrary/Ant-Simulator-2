@@ -20,7 +20,7 @@ void trail::tick(float _delta) {
 	this->_ticksRemaining--;
 	// seconds * 10, max ~15
 	if (this->isVisible()) {
-		this->getAsset()->setScale((float)this->getTicksRemaining() / LIFETIME, (float)this->getTicksRemaining() / LIFETIME);
+		this->getAsset()->setScale((float)this->getTicksRemaining() / TRAIL_LIFETIME, (float)this->getTicksRemaining() / TRAIL_LIFETIME);
 	}
 
 }

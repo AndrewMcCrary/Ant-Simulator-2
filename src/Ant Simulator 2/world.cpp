@@ -11,36 +11,51 @@ bool world::tick(float _delta) {
 	this->trailTick(_delta);
 
 
-
-	for (size_t i = 0; i < this->getAnts().size(); i++) {
-		this->getAnts()[i]->tick(_delta);
-		if (this->getAnts()[i]->getX() > WINDOW_RES_X) {
-			this->getAnts()[i]->setX(0.f);
-		} else if (this->getAnts()[i]->getX() < 0) {
-			this->getAnts()[i]->setX(WINDOW_RES_X);
-		}
-		if (this->getAnts()[i]->getY() > WINDOW_RES_Y) {
-			this->getAnts()[i]->setY(0.f);
-		} else if (this->getAnts()[i]->getY() < 0) {
-			this->getAnts()[i]->setY(WINDOW_RES_Y);
-		}
-	}
+	this->antsTick(_delta);
+	//for (size_t i = 0; i < this->getAnts().size(); i++) {
+	//	this->getAnts()[i]->tick(_delta);
+	//	if (this->getAnts()[i]->getX() > WINDOW_RES_X) {
+	//		this->getAnts()[i]->setX(0.f);
+	//	} else if (this->getAnts()[i]->getX() < 0) {
+	//		this->getAnts()[i]->setX(WINDOW_RES_X);
+	//	}
+	//	if (this->getAnts()[i]->getY() > WINDOW_RES_Y) {
+	//		this->getAnts()[i]->setY(0.f);
+	//	} else if (this->getAnts()[i]->getY() < 0) {
+	//		this->getAnts()[i]->setY(WINDOW_RES_Y);
+	//	}
+	//}
 	return true;
 }
 
 bool world::antsTick(float _delta) {
+	ant* current;
 	for (size_t i = 0; i < this->getAnts().size(); i++) {
-		if (this->getAnts()[i]->getFoodStatus()) {
+		current = this->getAnts()[i];
+		if (current->getFoodStatus()) {
 			// Ant is carrying food and looks for to home trail or home
 
 
 
 		} else {
 			// Ant is not carrying food and looks for to food trail or wanders
-
+			if (current->getTrailTickCounter() <= 0) {
+				this->addTrail(new trail(current->getX(), current->getY(), trailType::ToHome, TRAIL_LIFETIME, true));
+				current->resetTrailTickCounter();
+			}
 
 		}
 		this->getAnts()[i]->tick(_delta);
+
+		// Handle ants that go off the screen
+		if (current->getX() > WINDOW_RES_X)
+			current->setX(0.f);
+		else if (current->getX() < 0)
+			current->setX(WINDOW_RES_X);
+		if (current->getY() > WINDOW_RES_Y)
+			current->setY(0.f);
+		else if (current->getY() < 0)
+			current->setY(WINDOW_RES_Y);
 	}
 	return true;
 }
