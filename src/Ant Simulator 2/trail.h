@@ -3,8 +3,8 @@
 
 #define RADIUS_DIVISOR 10.f
 #define MAX_RADIUS 15.f
-#define TRAIL_LIFETIME 300
-#define VISIBLE_TRAILS true
+#define TRAIL_LIFETIME 600
+#define VISIBLE_TRAILS false
 
 #include "moveable.h"
 

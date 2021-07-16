@@ -23,6 +23,8 @@
 
 #include "moveable.h"
 
+// TODO Recreate object where it inherits from sf::shape
+
 class ant : public moveable {
 
 private:

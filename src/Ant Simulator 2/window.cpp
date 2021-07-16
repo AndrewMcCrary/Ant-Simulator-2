@@ -16,11 +16,11 @@ window::window(int resX, int resY, float tickRate) {
 	float dt = 1.f / tickRate;
 
 
-	for (int i = 0; i < 360; i++) {
+	for (int i = 0; i < 720; i++) {
 		w->addAnt(new ant(WINDOW_RES_X / 2.f, WINDOW_RES_Y / 2.f, (float)i));
 	}
 
-	w->addHome(new home(500, 500, 30));
+	//w->addHome(new home(500, 500, 30));
 	w->addTrail(new trail(300, 300, trailType::ToHome, TRAIL_LIFETIME, true));
 	w->addTrail(new trail(300, 600, trailType::ToFood, TRAIL_LIFETIME, true));
 
@@ -49,14 +49,14 @@ window::window(int resX, int resY, float tickRate) {
 		w->tick(tickRate * dt);
 
 		// Draw all objs
-		for (size_t i = 0; i < w->getFoods().size(); i++) {
-			win.draw(*w->getFoods()[i]->getAsset());
-		}
-
 		if (VISIBLE_TRAILS)
 			for (size_t i = 0; i < w->getTrails().size(); i++) {
 				win.draw(*w->getTrails()[i]->getAsset());
 			}
+
+		for (size_t i = 0; i < w->getFoods().size(); i++) {
+			win.draw(*w->getFoods()[i]->getAsset());
+		}
 
 		for (size_t i = 0; i < w->getAnts().size(); i++) {
 			win.draw(*w->getAnts()[i]->getAsset());
